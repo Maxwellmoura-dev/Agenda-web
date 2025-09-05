@@ -1,0 +1,33 @@
+.form-box {
+  max-width: 400px;
+  background: #f1f7fe;
+  border-radius: 16px;
+  color: #010101;
+}
+
+.form-cadastro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+
+/* Quando estiver em dark mode */
+body.dark-mode .text-entre {
+  color: #3399ff;
+}
+
+
+

@@ -1,0 +1,74 @@
+<%- include('includes/head') %>
+  <%- include('includes/nav') %>
+
+    <div class="container">
+      <div class="row">
+        <div class="class col-lg-2"></div>
+
+        <h1 class="text-center">login</h1>
+        <p class="text-center lead">faça login ou crie sua conta abaixo</p>
+
+
+
+        <div class="row d-flex justify-content-center align-items-center">
+
+          <!-- Cadastro -->
+          <div class="form-box p-4 shadow" id="cadastro-box">
+            <form class="form-cadastro" action="/login/register" method="POST">
+              <h2 class="title">Faça seu cadastro</h2>
+              <p class="subtitle">Se você ainda não tem conta, preencha o formulário abaixo.</p>
+
+              <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+
+              <div class="mb-3">
+                <input type="text" class="form-control" name="name" placeholder="Nome">
+              </div>
+
+              <div class="mb-3">
+                <input type="email" class="form-control" name="email" placeholder="Email">
+              </div>
+
+              <div class="mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Senha">
+              </div>
+
+              <%- include("includes/messages"); %>
+
+                <button type="submit" class="btn btn-primary w-100">Criar minha conta</button>
+
+                <p class="mt-3">Já tem uma conta? <a href="#" id="show-login" class="text-entre">Entre</a></p>
+            </form>
+          </div>
+
+          <!-- Login (começa escondido) -->
+          <div class="form-box p-4 shadow d-none" id="login-box">
+            <form class="form-login" action="/login/login" method="POST">
+              <h2 class="title">Faça seu login</h2>
+              <p class="subtitle">Se você já tem uma conta, faça login abaixo</p>
+
+              <input type="hidden" name="_csrf" value="<%=csrfToken %>">
+
+              <div class="mb-3">
+                <input type="email" class="form-control" name="email" placeholder="Email">
+              </div>
+
+              <div class="mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Senha">
+              </div>
+
+              <%- include("includes/messages"); %>
+
+                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+
+                <p class="mt-3">Não tem conta? <a href="#" id="show-cadastro" class="text-cadastro">Cadastre-se</a></p>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <%- include('includes/footer') %>

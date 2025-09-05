@@ -1,0 +1,60 @@
+<%- include('includes/head') %>
+  <%- include('includes/nav') %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+
+        <%- include('includes/messages') %>
+
+          <% if(contatos.length> 0) { %>
+            <div class="respondive-table table-bordered">
+              <table class="table   my-3">
+                <thead class="light">
+                  <tr>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <% contatos.forEach(contato=> { %>
+                  <tr>
+                    <td>
+                      <%= contato.nome %>
+                    </td>
+                    <td>
+                      <%= contato.sobrenome %>
+                    </td>
+                    <td>
+                      <%= contato.telefone %>
+                    </td>
+                    <td>
+                      <%= contato.email %>
+                    </td>
+                    <td><a class="text-info-emphasis" href="/contato/index/<%=contato._id %>">Editar</a></td>
+                    <td><a class="text-danger" href="/contato/delete/<%=contato._id %>">Excluir</a></td>
+                  </tr>
+                  <% }); %>
+              </table>
+            </div>
+            <% } else { %>
+              <div class="d-flex justify-content-center flex-column text-center py-3 ">
+                <h1>Bem-vindo(a) à sua Agenda de Contatos!</h1>
+                <p class="lead my-3">
+                  Este espaço foi criado para ajudar você a manter suas conexões sempre organizadas e acessíveis.
+                  Aqui, você poderá registrar informações importantes de familiares, amigos, colegas de trabalho,
+                  clientes e outros contatos que fazem parte da sua vida pessoal e profissional.
+                </p>
+
+              </div>
+              <% } %>
+
+
+                <div class="class col-lg-2"></div>
+      </div>
+    </div>
+
+
+
+    <%- include('includes/footer') %>
